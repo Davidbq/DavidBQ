@@ -1,6 +1,6 @@
 header{
-    color: white;
-    background-color: pink;
+    color: black;
+    background-color: turquoise;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,13 +20,14 @@ img{
 
 nav{
     width: 200px;
-    background-color: white;
+    background-color: rgb(80, 197, 226);
     padding: 20px;
 }
 
 main{
     flex: 1;
     padding: 20px;
+    background-color: aqua;
 }
 
 h2{
