@@ -20,22 +20,29 @@
     <a href="./datosacademicos.html">Datos Academicos</a>
 </nav>
 <main>
-            <h2>DATOS PERSONALES</h2>
+    <h2>DATOS PERSONALES</h2>
+            <table class="tabla de datos">
+                <thead>
+                    <tr>
+                        <th> NOMBRE</th>
+                        <th>APELLIDO</th>
+                        <TH>EDAD</TH>
+                        <TH>CURP</TH>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form action="">
+            <tr>
+                <td><input type="text" name="nombre" placeholder="Ej.David Quintana"></td>
+                <td><input type="text" name="apellido" placeholder=""></td>
+                <td><input type="text" name="edad" placeholder=""></td>
+                <td><input type="text" name="curp" placeholder=""></td>
 
-            <form action="">
-                <label for="nombre">nombre:</label>
-                <input type="text" id="nombre" name="nombre"> <br><br>
-
-                <label for="apellido">apellido:</label>
-                <input type="text" id="apellido" name="apellido"> <br><br>
-
-                <label for="edad">edad:</label>
-                <input type="number" id="edad" name="edad"> <br><br>
-
-                <label for="curp">curp:</label>
-                <input type="text" id="curp" name="curp"> <br><br>
-
-                <input type="submit">
+            </tr>             
+                </tbody>
+            </table>
+            <input type="submit">
+            </form>
 
 
             </form>
