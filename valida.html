@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Configuración general para centrar el formulario */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  /* Contenedor principal */
+  #signupForm {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 320px;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+  }
+
+  .field {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que el padding no estire el input */
+    transition: border-color 0.3s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.2);
+  }
+
+  /* Estilos de mensajes */
+  .error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin: 4px 0 0 0;
+    min-height: 15px; /* Evita que el formulario "salte" cuando aparece el error */
+  }
+
+  .ok {
+    color: #27ae60;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Botón estilizado */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #357ABD;
+  }
+
+  button:active {
+    transform: translateY(1px);
+  }
+
+  #result {
+    text-align: center;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+
+<form id="signupForm"> 
+  <h1>Sign Up</h1> 
+
+  <div class="field"> 
+    <label>Name</label> 
+    <input id="name" type="text" placeholder="Your name"> 
+    <p id="nameError" class="error"></p> 
+  </div> 
+
+  <div class="field"> 
+    <label>Email</label> 
+    <input id="email" type="text" placeholder="name@example.com"> 
+    <p id="emailError" class="error"></p> 
+  </div> 
+
+  <div class="field"> 
+    <label>Password</label> 
+    <input id="password" type="password" placeholder="Min 8 characters"> 
+    <p id="passwordError" class="error"></p> 
+  </div> 
+
+  <div class="field"> 
+    <label>Confirm Password</label> 
+    <input id="confirm" type="password" placeholder="Repeat password"> 
+    <p id="confirmError" class="error"></p> 
+  </div> 
+
+  <button type="submit">Create Account</button> 
+  <p id="result"></p> 
+</form> 
+
+<script> 
+// (Tu JavaScript original funciona perfectamente con este nuevo diseño)
+const form = document.getElementById("signupForm"); 
+const nameInput = document.getElementById("name"); 
+const emailInput = document.getElementById("email"); 
+const passInput = document.getElementById("password"); 
+const confirmInput = document.getElementById("confirm"); 
+const nameError = document.getElementById("nameError"); 
+const emailError = document.getElementById("emailError"); 
+const passError = document.getElementById("passwordError"); 
+const confirmError = document.getElementById("confirmError"); 
+const result = document.getElementById("result"); 
+
+function showError(el, message) { el.innerHTML = message; } 
+function clearError(el) { el.innerHTML = ""; } 
+
+function validateName() { 
+  let value = nameInput.value.trim(); 
+  if (value.length < 2) { showError(nameError, "Name must be at least 2 characters."); return false; } 
+  clearError(nameError); return true; 
+} 
+
+function validateEmail() { 
+  let value = emailInput.value.trim(); 
+  if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))) { showError(emailError, "Enter a valid email address."); return false; } 
+  clearError(emailError); return true; 
+} 
+
+function validatePassword() { 
+  let value = passInput.value; 
+  if (value.length < 8) { showError(passError, "Password must be at least 8 characters."); return false; } 
+  clearError(passError); return true; 
+} 
+
+function validateConfirm() { 
+  let pass = passInput.value; 
+  let confirm = confirmInput.value; 
+  if (confirm === "") { showError(confirmError, "Please confirm your password."); return false; } 
+  if (confirm !== pass) { showError(confirmError, "Passwords do not match."); return false; } 
+  clearError(confirmError); return true; 
+} 
+
+function validateForm() { 
+  return validateName() && validateEmail() && validatePassword() && validateConfirm(); 
+} 
+
+form.addEventListener("submit", function (event) { 
+  event.preventDefault(); 
+  result.innerHTML = ""; 
+  if (validateForm()) { 
+    result.innerHTML = "¡Acceso Válido!"; 
+    result.className = "ok"; 
+  } else { 
+    result.innerHTML = "Please fix the errors."; 
+    result.className = "error"; 
+  } 
+}); 
+</script> 
+
+</body> 
+</html>
