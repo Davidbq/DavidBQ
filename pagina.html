@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelBot - Inicio</title>
+    <link rel="stylesheet" href="pagina.css">
+    <script src="pagina.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h2>🤖 FeelBot</h2>
+    <nav>
+        <ul style="align-items: center;">
+            <li><a href="pagina.html" class="active">Inicio</a></li>
+            <li><a href="modelos.html">Modelos</a></li>
+            <li><a href="personalizar.html">Personalizar</a></li>
+            <li class="cart-header-container" onclick="toggleCart()">
+                <a href="javascript:void(0)">🛒 Carrito <span class="cart-count" id="cart-count">0</span></a>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h2>
+            <span>🛒 Tu Carrito</span>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total">$0 USD</span>
+            </div>
+            <button class="btn btn-checkout" onclick="procesarPago()">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <section id="hero" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
+        <h1>El compañero robótico diseñado por tu imaginación</h1>
+        <p>Descubre FeelBot, la línea de robots modulares que evoluciona con tu familia. Elige estructuras cúbicas o divertidas formas de oruga, pinta cada parte con tu color favorito y añade módulos de juguetes o burbujas para alegrar a los niños. Adquiere una versión de fábrica o diseña el tuyo desde cero.</p>
+        <a href="modelos.html" class="btn" style="align-self: center;">Ver Modelos</a>
+    </section>
+
+    <footer>
+        <p>© 2026 FeelBot. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

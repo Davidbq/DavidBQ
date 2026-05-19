@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelBot - Taller de Personalización</title>
+    <link rel="stylesheet" href="pagina.css">
+    <script src="pagina.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h2>🤖 FeelBot</h2>
+        <nav>
+            <ul style="align-items: center;">
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="modelos.html">Modelos</a></li>
+                <li><a href="personalizar.html" class="active">Personalizar</a></li>
+                <li class="cart-header-container" onclick="toggleCart()">
+                    <a href="javascript:void(0)">🛒 Carrito <span class="cart-count" id="cart-count">0</span></a>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h2>
+            <span>🛒 Tu Carrito</span>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total">$0 MXN</span>
+            </div>
+            <button class="btn btn-checkout" onclick="procesarPago()">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <main style="padding: 1rem 0;">
+        <section id="configurador-section">
+            <h2 style="text-align: center;">Taller de Personalización</h2>
+            <p style="text-align: center; color: var(--gray); margin-top: 1rem;">Configura la morfología, colores por zona y accesorios recreativos de tu FeelBot.</p>
+            
+            <div class="config-grid">
+                <div class="form-group">
+                    <label for="cuerpo">📦 Forma del Cuerpo:</label>
+                    <select id="cuerpo" onchange="calcularPrecio()">
+                        <option value="0">Esférico / Curvo Estándar</option>
+                        <option value="150">Cúbico / Cuadrado (+ $150)</option>
+                        <option value="300">Segmentado en forma de Oruga (+ $300)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="movimiento">⚙️ Tipo de Movimiento:</label>
+                    <select id="movimiento" onchange="calcularPrecio()">
+                        <option value="0">Orugas de Tracción (Terreno difícil)</option>
+                        <option value="0">Ruedas Omnidireccionales</option>
+                        <option value="500">Patas Articuladas (+ $500)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="color-chasis">🎨 Color del Chasis Principal:</label>
+                    <select id="color-chasis">
+                        <option value="Blanco Ártico">Blanco Ártico</option>
+                        <option value="Negro Carbón">Negro Carbón</option>
+                        <option value="Rojo Carmesí">Rojo Carmesí</option>
+                        <option value="Azul Eléctrico">Azul Eléctrico</option>
+                        <option value="Amarillo Sol">Amarillo Sol</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="color-cabeza">🎨 Color de la Cabeza:</label>
+                    <select id="color-cabeza">
+                        <option value="Blanco Ártico">Blanco Ártico</option>
+                        <option value="Negro Carbón">Negro Carbón</option>
+                        <option value="Rojo Carmesí">Rojo Carmesí</option>
+                        <option value="Azul Eléctrico">Azul Eléctrico</option>
+                        <option value="Amarillo Sol">Amarillo Sol</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="color-extremidades">🎨 Color de Extremidades/Ruedas:</label>
+                    <select id="color-extremidades">
+                        <option value="Negro Carbón">Negro Carbón</option>
+                        <option value="Blanco Ártico">Blanco Ártico</option>
+                        <option value="Rojo Carmesí">Rojo Carmesí</option>
+                        <option value="Azul Eléctrico">Azul Eléctrico</option>
+                        <option value="Amarillo Sol">Amarillo Sol</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="juguetes">🧸 Compartimento de Juguetes para Niños:</label>
+                    <select id="juguetes" onchange="calcularPrecio()">
+                        <option value="0">Ninguno (Uso general)</option>
+                        <option value="250">Lanzador de Pelotas de Esponja (+ $250)</option>
+                        <option value="350">Caja de Bloques Magnéticos Integrada (+ $350)</option>
+                        <option value="400">Módulo de Burbujas Automatizado (+ $400)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="utilidad">🛠️ Utilidad Principal:</label>
+                    <select id="utilidad">
+                        <option value="Brazo con Garra">Brazo con Garra Mech</option>
+                        <option value="Pantalla LCD">Pantalla LCD Interactiva</option>
+                        <option value="Cámara HD">Módulo de Cámara HD</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="entrega">📦 Método de Entrega:</label>
+                    <select id="entrega" onchange="calcularPrecio()">
+                        <option value="200">Archivos STL para Impresión 3D (+$200)</option>
+                        <option value="1200">Kit de Piezas Desarmadas (+$1200)</option>
+                        <option value="2000" selected>Robot Totalmente Armado (+$2000)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="resumen-compra">
+                <h3>Total Estimado:</h3>
+                <div class="total-price" id="precio-total">$3,000 MXN</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 FeelBot. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelBot - Modelos disponibles</title>
+    <link rel="stylesheet" href="pagina.css">
+    <script src="pagina.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h2>🤖 FeelBot</h2>
+        <nav>
+            <ul style="align-items: center;">
+                <li><a href="pagina.html">Inicio</a></li>
+                <li><a href="modelos.html" class="active">Modelos</a></li>
+                <li><a href="personalizar.html">Personalizar</a></li>
+                <li class="cart-header-container" onclick="toggleCart()">
+                    <a href="javascript:void(0)">🛒 Carrito <span class="cart-count" id="cart-count">0</span></a>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h2>
+            <span>🛒 Tu Carrito</span>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total">$0 MXN</span>
+            </div>
+            <button class="btn btn-checkout" onclick="procesarPago()">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <main style="padding-bottom: 4rem;">
+        <h2 class="section-title">Nuestras Versiones</h2>
+        <section id="modelos">
+            
+            <div class="card">
+                <h3>🤖 Modelo Básico</h3>
+                <p>Configuración clásica con cuerpo esférico estándar en color Blanco Ártico. Se desplaza mediante ruedas omnidireccionales y viene equipado con un brazo de garra mecánica ideal para tareas simples de aprendizaje.</p>
+                <div class="price">$1,000 MXN</div>
+                <button class="btn" onclick="agregarModeloPredefinido('Modelo Básico', 1000)">Comprar</button>
+            </div>
+            
+            <div class="card">
+                <h3>👁️ Modelo IA & Diversión</h3>
+                <p>Estructura segmentada en forma de oruga con acabado bitono Azul Eléctrico y Negro Carbón. Cuenta con un módulo de cámara HD para navigation autónoma y el divertido lanzador de pelotas automatizado para los niños.</p>
+                <div class="price">$5,000 MXN</div>
+                <button class="btn" onclick="agregarModeloPredefinido('Modelo IA & Diversión', 5000)">Comprar</button>
+            </div>
+
+            <div class="card" style="border: 2px dashed var(--primary); background: #fdfdfd;">
+                <h3>🛠️ Plan Personalizado</h3>
+                <p>¿Prefieres un cuerpo cúbico cuadrado? ¿Quieres pintar cada zona con un color único o añadir un módulo de burbujas? Diseña tu FeelBot ideal combinando piezas y accesorios a tu gusto.</p>
+                <div class="price" style="font-size: 1.1rem; color: var(--gray); margin-bottom: 1.9rem;">Desde $1,000 MXN</div>
+                <a href="personalizar.html" class="btn">Configurar</a>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 FeelBot. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

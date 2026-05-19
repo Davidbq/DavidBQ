@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelBot - Contacto</title>
+    <link rel="stylesheet" href="pagina.css">
+    <script src="pagina.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h2>🤖 FeelBot</h2>
+    <nav>
+        <ul style="align-items: center;">
+            <li><a href="pagina.html">Inicio</a></li>
+            <li><a href="modelos.html">Modelos</a></li>
+            <li><a href="personalizar.html">Personalizar</a></li>
+            <li class="cart-header-container" onclick="toggleCart()">
+                <a href="javascript:void(0)">🛒 Carrito <span class="cart-count" id="cart-count">0</span></a>
+            </li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h2>
+            <span>🛒 Tu Carrito</span>
+            <button class="close-cart" onclick="toggleCart()">✕</button>
+        </h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span id="cart-total">$0 USD</span>
+            </div>
+            <button class="btn btn-checkout" onclick="procesarPago()">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <main style="padding: 1rem 0;">
+        <section id="configurador-section" style="max-width: 600px; margin: 4rem auto;">
+            <h2 style="text-align: center;">📬 Ponte en Contacto</h2>
+            <p style="text-align: center; color: var(--gray); margin-top: 1rem; margin-bottom: 2rem;">
+                ¿Tienes dudas sobre los componentes de FeelBot o necesitas soporte? Escríbenos.
+            </p>
+            
+            <form onsubmit="alert('¡Mensaje enviado con éxito! Nos comunicaremos contigo pronto.'); this.reset(); return false;" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="form-group">
+                    <label for="nombre-contacto">👤 Nombre Completo:</label>
+                    <input type="text" id="nombre-contacto" required style="padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem;">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo-contacto">📧 Correo Electrónico:</label>
+                    <input type="email" id="correo-contacto" required style="padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem;">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje-contacto">💬 Mensaje:</label>
+                    <textarea id="mensaje-contacto" rows="4" required style="padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; font-family: inherit; resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; padding: 1rem;">Enviar Mensaje</button>
+            </form>
+
+            <hr style="border: 0; border-top: 2px solid var(--light); margin: 2rem 0;">
+
+            <div style="text-align: center;">
+                <h3 style="color: var(--dark); margin-bottom: 1rem;">🌐 Síguenos en Redes</h3>
+                <div style="display: flex; justify-content: center; gap: 1.5rem; font-size: 1.1rem;">
+                    <a href="#" style="color: var(--primary); text-decoration: none; font-weight: bold;">📘 Facebook</a>
+                    <a href="#" style="color: #e1306c; text-decoration: none; font-weight: bold;">📸 Instagram</a>
+                    <a href="#" style="color: #1da1f2; text-decoration: none; font-weight: bold;">🐦 X (Twitter)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 FeelBot. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
